@@ -1,0 +1,198 @@
+.sidenavbar {
+  width: 240px;
+  background: #1a1a1a;
+  display: flex;
+  flex-direction: column;
+  color: #ccc;
+  height: 100%;
+}
+
+.sidenavbar .sidenavbar-top {
+  flex: 1;
+}
+
+.sidenavbar-top__profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+.sidenavbar .sidenavbar-top__search {
+  padding: 15px;
+}
+
+.sidenavbar .search-block {
+  display: flex;
+  align-items: center;
+  background: #404040;
+  padding: 8px 10px;
+  border-radius: 50px;
+}
+
+.sidenavbar .fa-search {
+  font-size: 12px;
+}
+
+.sidenavbar .input {
+  color: #fff;
+  margin-left: 10px;
+  background: none;
+  outline: none;
+  border: none;
+}
+
+.sidenavbar .profile-icon {
+  background: #f8cbad;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidenavbar .profile-title {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  margin-left: 10px;
+}
+
+.sidenavbar .fa-user-circle {
+  margin: 0 10px;
+  font-size: 12px;
+}
+
+.sidenavbar .sidenavbar-top__create-note {
+  padding: 0 15px;
+  color: #fff;
+}
+
+.sidenavbar .create-note-btn {
+  display: flex;
+  align-items: center;
+  background: #03a82d;
+  padding: 8px 10px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.sidenavbar .fa-plus-square {
+  font-size: 20px;
+}
+
+.sidenavbar .title {
+  margin-left: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.sidenavbar .sidenavbar-top__menu-item {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  padding: 10px 18px;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.sidenavbar .menu-li-1 {
+  display: flex;
+  align-items: center;
+  padding: 10px 18px;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.sidenavbar .fa-star {
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.menu-li-1:hover {
+  cursor: pointer;
+  background: rgb(71, 71, 71);
+}
+
+.sidenavbar .menu-li-2 {
+  display: flex;
+  align-items: center;
+  padding: 10px 18px;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.sidenavbar .fa-star {
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.menu-li-2:hover {
+  cursor: pointer;
+  background: rgb(71, 71, 71);
+}
+
+.sidenavbar .menu-li-3 {
+  display: flex;
+  align-items: center;
+  padding: 10px 18px;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.sidenavbar .fa-star {
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.menu-li-3:hover {
+  cursor: pointer;
+  background: rgb(71, 71, 71);
+}
+
+.sidenavbar .menu-li-4 {
+  display: flex;
+  align-items: center;
+  padding: 10px 18px;
+  color: #ccc;
+  text-decoration: none;
+}
+
+.sidenavbar .fa-star {
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.menu-li-4:hover {
+  cursor: pointer;
+  background: rgb(71, 71, 71);
+}
+
+/* .sidenavbar .sidenavbar-top__menu-item:hover {
+  cursor: pointer;
+  background: #520808;
+} */
+/* to update. changes color on hover */
+/* .sidenavbar-top__menu-item.active:active {
+  background: #520808;
+} */
+
+.sidenavbar .sidenavbar-bottom {
+  padding: 8px 15px;
+  border-top: 1px solid #555;
+  border-top-style: solid;
+  position: fixed;
+  bottom: 0px;
+}
+
+.sidenavbar .sidenavbar__need-help {
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+
+.sidenavbar .fa-shoe-prints {
+  font-size: 14px;
+  margin-right: 8px;
+}
