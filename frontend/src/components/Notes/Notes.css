@@ -25,11 +25,11 @@
   cursor: default;
 }
 
-.note .note__header .note__header-action-btn {
+.note .note__header .note__header-btn {
   display: flex;
 }
 
-.note .note__header .note__header-action-btn .action-btn {
+.note .note__header .note__header-btn .action-btn {
   color: #737373;
   font-size: 14px;
   opacity: 0.6;

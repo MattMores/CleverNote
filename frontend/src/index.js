@@ -10,6 +10,8 @@ import configureStore from "./store";
 //import all actions from the session.js file into the frontend applicaiton entry file
 import { restoreCSRF, csrfFetch } from "./store/csrf";
 import * as sessionActions from "./store/session";
+// import { NotesContext } from "./context/context"
+// import NoteReducer
 
 const store = configureStore();
 
@@ -22,13 +24,18 @@ if (process.env.NODE_ENV !== "production") {
   window.sessionActions = sessionActions;
 }
 
+// const initialState =[]
+
 function Root() {
+  // const [notes, notesDispatch] = useReducer(NoteReducer, initialState);
   return (
     <Provider store={store}>
       <ModalProvider>
+      {/* <NotesContext.Provider value={{notesState: notes, notesDispatch}}> */}
         <BrowserRouter>
           <App />
         </BrowserRouter>
+      {/* </NotesContext.Provider> */}
       </ModalProvider>
     </Provider>
   );

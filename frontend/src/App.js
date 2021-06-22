@@ -19,20 +19,25 @@ function App() {
     <>
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
-        <Switch>
-          <Route path="/signup">
-            <SignupFormPage />
-          </Route>
+          <Switch>
+            <Route path="/signup">
+               <SignupFormPage />
+           </Route>
           <div className="evernote">
-          <Route path="/home">
-            <Sidenavbar />
-          </Route>
-          <Route path="/home">
-            <Notebooks />
-          </Route>
-          <Route path="/home">
-            <Notes />
-          </Route>
+            <Route path="/all-notes">
+              <Sidenavbar />
+              <Notebooks title="All Notes"/>
+              <Route path="/all-notes/:id">
+                <Notes />
+              </Route>
+            </Route>
+            <Route path="/trash">
+              <Sidenavbar />
+              <Notebooks title="Trash" />
+              <Route path="/trash/:id">
+                  <Notes />
+              </Route>
+            </Route>
           </div>
         </Switch>
       )}
