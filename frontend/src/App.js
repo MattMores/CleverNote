@@ -7,13 +7,15 @@ import Navigation from "./components/Navigation";
 import Sidenavbar from "./components/Sidenavbar/Sidenavbar";
 import Notebooks from "./components/Notebooks/Notebooks";
 import Notes from "./components/Notes/Notes";
-import Header from "./components/NotesTracker/Header"
-import Tasks from "./components/NotesTracker/Tasks"
+import Header from "./components/NotesTracker/Header";
+import Tasks from "./components/NotesTracker/Tasks";
+import AddTask from "./components/NotesTracker/AddTask";
 // use this thunk action inside of App.js after the App component's first render.
 function App() {
   const dispatch = useDispatch();
   const [isLoaded, setIsLoaded] = useState(false);
-  const [tasks, setTasks] = useState(
+  const [showAddTask, setShowAddTask] = useState(false);
+  const [tasks, setTasks] = useState( // now can pass down to componenets as props
     [
       {
           id: 1,
@@ -34,6 +36,29 @@ function App() {
           reminder: true
       }
     ])
+
+// add Task
+const addTask = (task) => {
+  const id = Math.floor(Math.random() * 1000) + 1 // MY backend will create ID on it's own
+  console.log(id);
+  const newTask = { id, ...task }
+  setTasks([...tasks, newTask])
+}
+// delete task
+const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id))
+    }
+
+// toggle reminder
+
+const toggleReminder = (id) => {
+  setTasks(
+    tasks.map((task) =>
+      task.id === id ? { ...task, reminder: !task.reminder } : task
+    )
+  )
+}
+
   useEffect(() => {
     dispatch(sessionActions.restoreUser()).then(() => setIsLoaded(true));
   }, [dispatch]);
@@ -48,12 +73,10 @@ function App() {
            </Route>
            <Route exact path="/test-notes">
            <div className='container'>
-              <Header />
-              <Tasks tasks={tasks}/>
-              <Header />
-              <Tasks tasks={tasks}/>
-              <Header />
-              <Tasks tasks={tasks}/>
+              <Header onAdd={() => setShowAddTask(!showAddTask)}
+              showAdd={showAddTask} />
+              {showAddTask && <AddTask onAdd={addTask} />}
+              <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>
               <Header />
               <Tasks tasks={tasks}/>
             </div>
