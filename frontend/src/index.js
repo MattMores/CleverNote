@@ -5,7 +5,8 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import { ModalProvider } from "./context/Modal";
-
+import * as userActions from "./store/users";
+import * as notesActions from "./store/notes";
 import configureStore from "./store";
 //import all actions from the session.js file into the frontend applicaiton entry file
 import { restoreCSRF, csrfFetch } from "./store/csrf";
@@ -22,6 +23,8 @@ if (process.env.NODE_ENV !== "production") {
   window.store = store;
     //attach the actions to the window at the key of sessionActions
   window.sessionActions = sessionActions;
+  window.userActions = userActions;
+  window.notesActions = notesActions;
 }
 
 // const initialState =[]

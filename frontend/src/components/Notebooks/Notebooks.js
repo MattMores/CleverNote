@@ -7,9 +7,15 @@ import './Notebooks.css';
 //import { getRequest }
 // import {NotesContext }
 // import {NavLink}
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getAllNotes } from '../../store/notes';
 
 const Notebook = (props) => {
     const {title} = props;
+    const dispatch = useDispatch();
+    const notes = useSelector(state => Object.values(state.notes));
+    const user = useSelector(state => state.session.user);
     // const [error, setError] = useState(null)
     // const notesContext = useContext(NotesContext);
     // const match = useRouteMatch();
@@ -18,6 +24,12 @@ const Notebook = (props) => {
     //     console.log(match.url);
     //     getNotes()
     // }, [match.url])
+    useEffect(() => {
+        if (user) {
+        dispatch(getAllNotes(user.id));
+        }
+    }, [dispatch, user]);
+
 
     // const getNotes = async () => {
     //     let endpoint = '';
@@ -49,7 +61,7 @@ const Notebook = (props) => {
                 </div>
                 <div className="note-list__header-sub-head">
                     <div className="note-count">
-                        notes.Context.notesState.length
+                        Total Notes: {notes.length}
                     </div>
                 </div>
             </div>
@@ -62,48 +74,24 @@ const Notebook = (props) => {
                   }
                 ): <div className="empty-state">No data found</div>
                 */}
+                {notes && notes.map(note => (
                 <div className="note-card">
                     <div className="note-card__head">
                         <div className="note-card__title">
-                            Note One
-                            {/* {note.title} */}
+                            {note.title}
+                            {/* {notes && notes.map(note => (
+                                {}
+                            ))} */}
                         </div>
                         <div className="note-card__desc">
-                            Some description
-                            {/* {note.desc} */}
+                            {note.content}
                         </div>
                     </div>
                     <div className="note-card__date">
-                        Today's Date
-                        {/* {listFormatDate(note.updatedAt)} - see helper function */}
+                        {note.createdAt}
                     </div>
-                </div>
-                <div className="note-card">
-                    <div className="note-card__head">
-                        <div className="note-card__title">
-                            Note One
-                        </div>
-                        <div className="note-card__desc">
-                            Some description
-                        </div>
-                    </div>
-                    <div className="note-card__date">
-                        Today's Date
-                    </div>
-                </div>
-                <div className="note-card">
-                    <div className="note-card__head">
-                        <div className="note-card__title">
-                            Note One
-                        </div>
-                        <div className="note-card__desc">
-                            Some description
-                        </div>
-                    </div>
-                    <div className="note-card__date">
-                        Today's Date
-                    </div>
-                </div>
+                 </div>
+                ))}
             </div>
         </div>
     )

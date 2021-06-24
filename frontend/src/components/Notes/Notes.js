@@ -1,8 +1,6 @@
 import React from 'react';
 // import { NotesContext } from '../../context/context';
 // import { useParams } from 'react-router-dom';
-// import { NotesContext } from '../../context/context';
-// import { NotesContext } from '../../context/context';
 // import sessionReducer from '../../../../clevernote/src/store/session';
 // import { NotesContext } from '../../context/context';
 import './Notes.css';
@@ -25,7 +23,6 @@ const Notes = () => {
     // const [updatedAt, setUpdatedAt] = useState('');
     // const [isArchive, setIsArchive] = useState(0);
     // const [error, setError] = useState(null);
-
     // useEffect(() => {
     //     if(location.note) {
     //         setTitle(location.note.title)
@@ -57,9 +54,9 @@ const Notes = () => {
 
     // const handleUpdateNote = async (key) => {
     //     let query = {};
-    //     if(key == 'title'){
+    //     if(key === 'title'){
     //         query['title'] = title;
-    //     } else if (key == 'desc'){
+    //     } else if (key === 'desc'){
     //         query['desc'] = desc;
     //     }
     //     const response = await putRequest(`${BASE_URL}${UPDATE_NOTE}${params.id}`, query);
@@ -126,7 +123,7 @@ const Notes = () => {
             <div className="note__header">
                 <div className="note__header-date">
                 Last edited on updatedAt
-                {/* {noteFOrmatDate(updatedAt)} - see helper funciton */}
+                {/* {noteFormatDate(updatedAt)} - see helper funciton */}
                 </div>
                 <div className="note__header-btn">
                     {/* {!isArchive ? "first button" : "second two buttons"} */}

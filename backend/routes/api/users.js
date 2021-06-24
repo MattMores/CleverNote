@@ -45,5 +45,19 @@ router.post(
       });
     }),
   );
+//API/users/
+// Create the API route here
+// express 
+router.get('/', asyncHandler(async (req, res) => {
+  const users = await User.findAll();
+  res.json(users)
+}));
+// http://localhost:5000/api/users
+
+  // create a router here
+  // You'll need an asyncHandler. Import the database stuff you'll need
+  //Import other middleware
+  //Create the API route here
+  // Rmemeber to export the router too.
 
 module.exports = router;
