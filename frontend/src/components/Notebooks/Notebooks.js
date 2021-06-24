@@ -66,22 +66,11 @@ const Notebook = (props) => {
                 </div>
             </div>
             <div className="note-list__body">
-                {/* {notesContext.notesState.length > 0 ? notesContext.notesState.map((note) => (
-                  INSERT entire note-card div in here).
-                  Change div to NavLink key ={note.id} to ={
-                      pathname: `${match.url}/$note._id,
-                      note:
-                  }
-                ): <div className="empty-state">No data found</div>
-                */}
                 {notes && notes.map(note => (
                 <div className="note-card">
                     <div className="note-card__head">
                         <div className="note-card__title">
                             {note.title}
-                            {/* {notes && notes.map(note => (
-                                {}
-                            ))} */}
                         </div>
                         <div className="note-card__desc">
                             {note.content}
