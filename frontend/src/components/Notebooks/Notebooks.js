@@ -10,6 +10,7 @@ import './Notebooks.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getAllNotes } from '../../store/notes';
+import { Link } from 'react-router-dom';
 
 const Notebook = (props) => {
     const {title} = props;
@@ -68,6 +69,7 @@ const Notebook = (props) => {
             <div className="note-list__body">
                 {notes && notes.map(note => (
                 <div className="note-card">
+                <Link to={`/all-notes/edit/${note.id}`} style={{ color: "inherit", textDecoration: 'inherit'}}>
                     <div className="note-card__head">
                         <div className="note-card__title">
                             {note.title}
@@ -79,6 +81,7 @@ const Notebook = (props) => {
                     <div className="note-card__date">
                         {note.createdAt}
                     </div>
+                </Link>
                  </div>
                 ))}
             </div>

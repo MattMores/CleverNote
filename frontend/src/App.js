@@ -10,6 +10,7 @@ import Notes from "./components/Notes/Notes";
 import Header from "./components/NotesTracker/Header";
 import Tasks from "./components/NotesTracker/Tasks";
 import AddTask from "./components/NotesTracker/AddTask";
+import EditNotes from "./components/EditNotes/EditNotes"
 // use this thunk action inside of App.js after the App component's first render.
 function App() {
   const dispatch = useDispatch();
@@ -84,8 +85,11 @@ const toggleReminder = (id) => {
             <Route path="/all-notes">
               <Sidenavbar />
               <Notebooks title="All Notes"/>
-              <Route path="/all-notes/:id">
+              <Route exact path="/all-notes/:noteid">
                 <Notes />
+              </Route>
+              <Route exact path="/all-notes/edit/:noteid">
+                <EditNotes />
               </Route>
             </Route>
             <Route path="/trash">

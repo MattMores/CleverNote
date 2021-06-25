@@ -48,6 +48,7 @@ const Sidenavbar = () => {
                 </div>
                 <div className="sidenavbar-top__create-note">
                 {/* <div className="create-note-btn" onClick={handleCreateNote}> */}
+                {/* //new note */}
                 <Link to="/all-notes/:id" style={{ color: "inherit", textDecoration: 'inherit'}}>
                     <div className="create-note-btn">
                         <i className="far fa-plus-square"></i>
@@ -72,15 +73,27 @@ const Sidenavbar = () => {
                             </NavLink>
                         </li>
                         <li className="menu-li-3">
-                            <NavLink to="/thing-3" style={{ color: "inherit", textDecoration: 'inherit'}}>
+                            <NavLink to="/trash" style={{ color: "inherit", textDecoration: 'inherit'}}>
                             <i className="far fa-star"></i>
-                            Thing 3
+                            Notebook 1
                             </NavLink>
                         </li>
                         <li className="menu-li-4">
                             <NavLink to="/trash" style={{ color: "inherit", textDecoration: 'inherit'}}>
                             <i className="far fa-star"></i>
-                            Trash
+                            Notebook 2
+                            </NavLink>
+                        </li>
+                        <li className="menu-li-4">
+                            <NavLink to="/trash" style={{ color: "inherit", textDecoration: 'inherit'}}>
+                            <i className="far fa-star"></i>
+                            Notebook 3
+                            </NavLink>
+                        </li>
+                        <li className="menu-li-4">
+                            <NavLink to="/trash" style={{ color: "inherit", textDecoration: 'inherit'}}>
+                            <i className="far fa-star"></i>
+                            Notebook 4
                             </NavLink>
                         </li>
                     </ul>

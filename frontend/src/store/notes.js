@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 // Define Action Types as Constants // Like the domain name
 const GET_ALL_NOTES = 'notes/GET_ALL_NOTES';
 const ADD_NOTE = 'notes/ADD_NOTE';
+// const GET_ONE_NOTE = "notes/GET_ONE_NOTE";
 
 // Define Action Creators // Thunk next will have to pass the users it takes
 // in to the database
@@ -16,6 +17,10 @@ const addNote = (note) => ({
     note
   });
 
+  // const getOneNote = (note) => ({
+  //   type: GET_ONE_NOTE,
+  //   note
+  // });
 // Define Thunk Creators
 export const getAllNotes = () => async (dispatch) => {
   const res = await fetch('/api/notes/all'); // api/users we defined in backend
@@ -44,6 +49,17 @@ export const noteCreate = (note) => async (dispatch) => {
     // return response;
 };
 
+// export const grabOneNote = (noteId) => async (dispatch) => {
+//   const res = await fetch(`/api/notes/${noteId}`); // api/users we defined in backend
+//   // this works b/c we set a proxy in our package.json aka localhost:5000
+//   const note = await res.json(); // b/c we res.json in the backend
+//   // we now have an array of users
+//   if (res.ok) {
+//     dispatch(getOneNote(note));
+//   }// setUsers action creator, passing in the users
+//   //we got from the backend
+// };
+
 
 // Define an initial state
 const initialState = {}; // defining how you want your redux store to be created
@@ -68,6 +84,15 @@ let newState;
         // console.log(action.note)
         newState = {...state, [action.note.id] : action.note}
         return newState;
+    // case GET_ONE_NOTE: {
+    //   return {
+    //     ...state,
+    //     [action.note.id]: {
+    //       ...state[action.note.id],
+    //       ...action.note
+    //     }
+    //   }
+    // }
     default: // action goes through entire reducer and slices of state
       return state;
   }
