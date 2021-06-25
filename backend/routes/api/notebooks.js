@@ -1,12 +1,16 @@
 const express = require('express');
 const router = express.Router();
 const asyncHandler = require('express-async-handler');
+const { Notebook } = require('../../db/models');
+const { restoreUser } = require('../../utils/auth');
 
 // const { Notebook, Note } = require('../../db/models');
 
-// router.get('/:id/notes', asyncHandler(async (req, res) => {
-//     const notebook
-// }))
+router.get('/', restoreUser, asyncHandler(async (req, res) => {
+    const notebooks = await Notebook.findAll()
+    console.log(notebooks)
+    res.json(notebooks)
+}))
 // router.get('/', asyncHandler(async (req, res) => {
 //     const states = await State.findAll();
 //     res.json(states);

@@ -40,7 +40,6 @@ function App() {
 // add Task
 const addTask = (task) => {
   const id = Math.floor(Math.random() * 1000) + 1 // MY backend will create ID on it's own
-  console.log(id);
   const newTask = { id, ...task }
   setTasks([...tasks, newTask])
 }

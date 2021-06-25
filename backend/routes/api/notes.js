@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { Note } = require('../../db/models');
+const { Note, Notebook } = require('../../db/models');
 
 const asyncHandler = require('express-async-handler');
 
@@ -12,24 +12,23 @@ const asyncHandler = require('express-async-handler');
 // // detel notes
 // app.delete('/api/note/:id', controller.deleteNote);
 
-// router.post('/', possibleValidations.validateCreate, asyncHandler(async (req, res) => {
-//     const id = await Note.create(req.body);
-//     return res.redirect(`${req.baseURL}/${id}`);
-// }));
-
-// router.post(
-//     '/:id/items',
-//     itemValidations.validateCreate,
-//     asyncHandler(async function(req, res) {
-//       const item = await ItemsRepository.addItem(req.body, req.params.id);
-//       return res.json(item);
-//     })
-//   );
 
 router.get('/all', asyncHandler(async (req, res) => { // get all notes
-    const notes = await Note.findAll();
+    const notes = await Note.findAll({includes: Notebook});
     res.json(notes);
 }));
 
+router.post('/', asyncHandler(async (req, res) => {
+  console.log("----------------------------", req.body)
+  const { userId, title, content, notebookId } = req.body; //notebookId
+    console.log("--------------------", userId, title, content); //notebookId
+    const note = await Note.create({ //notebookId
+      userId,
+      title,
+      content,
+      notebookId
+    });
+    res.json(note);
+  }));
 
 module.exports = router;

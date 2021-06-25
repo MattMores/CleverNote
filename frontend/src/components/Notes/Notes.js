@@ -1,28 +1,107 @@
 import React from 'react';
-// import { NotesContext } from '../../context/context';
 // import { useParams } from 'react-router-dom';
 // import sessionReducer from '../../../../clevernote/src/store/session';
 // import { NotesContext } from '../../context/context';
 import './Notes.css';
-// import { useLocation } from "react-router-dom"
-// import {useState, useEffect}
-//import { putRequest, deleteRequest } from API
-//import { BASE_URL, UPDATE_NOTE,DELETE_NOTE }
-//import useParams
-// import { Notescontext }
-// import useContext
-// import useHistory
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+import { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllNotes, noteCreate } from '../../store/notes'
+import { getUsers } from '../../store/users'
+import { getAllNotebooks } from '../../store/notebook'
+
 
 const Notes = () => {
-    // const history = useHistory();
-    // const location = useLocation();
-    // const params = useParams();
-    // const [title, setTitle] = useState('');
-    // const [desc, setDesc] = useState('');
-    // const notesContext = useContext(NotesContext);
-    // const [updatedAt, setUpdatedAt] = useState('');
-    // const [isArchive, setIsArchive] = useState(0);
+    const [title, setTitle] = useState('');
+    const [content, setContent] = useState('');
+    const userId = useSelector(state => state.session.user.id);
+    const notebooks = useSelector(state => Object.values(state.notebooks));
+    console.log(notebooks)
+    const dispatch = useDispatch();
+    const allNotes = useSelector(state => Object.values(state.notes));
+    // console.log(allNotes)
+    const currentUserNote = allNotes.find(note => note?.userId === userId)
+    console.log(currentUserNote)
+    // const currentNote = currentUserNotes[0];
+    const currentUserNotebook = notebooks.find(notebook => notebook?.id === currentUserNote?.notebookId)
+    console.log(currentUserNotebook);
+    const notebookId = currentUserNote?.notebookId
+
+    useEffect(() => {
+        dispatch(getAllNotes());
+        dispatch(getAllNotebooks());
+        // dispatch(getUsers());
+        // dispatch(noteCreate());
+    }, [dispatch])
+
+
+const onSubmit = (e) => {
+        e.preventDefault();
+        const note = {userId, title, content, notebookId}
+        dispatch(noteCreate(note))
+        setContent('')
+        setTitle('')
+        // setUpdatedAt('')
+    };
+
+const titleChange = (e) => {
+        setTitle(e.target.value)
+    }
+
+const contentChange = (e) => {
+        setContent(e)
+        console.log(content)
+    }
+
+    return (
+      <form className="add-form" onSubmit={onSubmit}>
+       <div className="note">
+            <div className="note__header">
+                <div className="note__header-date">
+                Last edited on updatedAt
+                {/* {noteFormatDate(updatedAt)} - see helper funciton */}
+                </div>
+                <div className="note__header-btn">
+                    {/* {!isArchive ? "first button" : "second two buttons"} */}
+                    <div className="action-btn">
+                {/* onClick={handleArchiveNote}*/}
+                        <i className="far fa-star"></i>
+                    </div>
+                    <div className="action-btn">
+                 {/* onClick={handleUnArchiveNote}*/}
+                        <i className="far fa-star"></i>
+                    </div>
+                    <div className="action-btn">
+                 {/* onClick={handleDeleteNote}*/}
+                        <i className="far fa-star"></i>
+                    </div>
+                </div>
+            </div>
+            <div className="note__body">
+                <div className="note__body-head">
+                    <input className="note__input" placeholder="Title"
+                    value={title} onChange={(e) => titleChange(e)}
+                    />
+                     {/* {onBlur={() => handleUpdatedNote('title)}} */}
+                </div>
+                <div className="note__body-content">
+                    {/* <textarea className="note-txt" placeholder="Start writing" /> */}
+                    <ReactQuill className="note-txt" placeholder="Write a Joke Bitch"
+                    value={content} onChange={(e) => contentChange(e)}
+                    />
+                    {/* onChange={e => setNoteText(e)} */}
+                     {/* {onBlur={() => handleUpdatedNote('desc)}} */}
+                </div>
+                <button type="submit">Submit</button>
+            </div>
+        </div>
+     </form>
+    )
+}
+
     // const [error, setError] = useState(null);
+    // const [isArchive, setIsArchive] = useState(0);
     // useEffect(() => {
     //     if(location.note) {
     //         setTitle(location.note.title)
@@ -31,26 +110,6 @@ const Notes = () => {
     //         setIsArchive(location.note.archive)
     //     }
     // }, [location.note])
-
-    // useEffect(() => {
-    //     if (notesContext.notesState.length > 0) {
-    //         const [selectednote] = notesContext.notesState.filter((e) => e._id === params.id);
-    //         if (selectednote) {
-    //             setTitle(selectednote.title)
-    //             setDesc(selectednote.desc)
-    //             setUpdatedAt(selectednote.updatedAt)
-    //             setIsArchive(selectednote.archive)
-    //         }
-    //     }
-    // }, [notesContext.netesState])
-
-    // const handleTitleChange = (e) => {
-    //     setTitle(e.target.value)
-    // }
-
-    // const handleDescChange = (e) => {
-    //     setDesc(e.target.value)
-    // }
 
     // const handleUpdateNote = async (key) => {
     //     let query = {};
@@ -109,54 +168,14 @@ const Notes = () => {
 //     history.pushState('/trash');
 // }
 
-//     const resetState = () => {
-//         setTitle('');
-//         setDesc('');
-//         setUpdatedAt('');
-//         setIsArchive(0);
-//         setError(null);
+    // const resetState = () => {
+    //     setTitle('');
+    //     setDesc('');
+    //     setUpdatedAt('');
+    //     setIsArchive(0);
+    //     setError(null);
 
-//     }
-
-    return (
-        <div className="note">
-            <div className="note__header">
-                <div className="note__header-date">
-                Last edited on updatedAt
-                {/* {noteFormatDate(updatedAt)} - see helper funciton */}
-                </div>
-                <div className="note__header-btn">
-                    {/* {!isArchive ? "first button" : "second two buttons"} */}
-                    <div className="action-btn">
-                {/* onClick={handleArchiveNote}*/}
-                        <i className="far fa-star"></i>
-                    </div>
-                    <div className="action-btn">
-                 {/* onClick={handleUnArchiveNote}*/}
-                        <i className="far fa-star"></i>
-                    </div>
-                    <div className="action-btn">
-                 {/* onClick={handleDeleteNote}*/}
-                        <i className="far fa-star"></i>
-                    </div>
-                </div>
-            </div>
-            <div className="note__body">
-                <div className="note__body-head">
-                    <input className="note__input" placeholder="Title" />
-                    {/* {onChange={handlTitleChange}} */}
-                     {/* {onBlur={() => handleUpdatedNote('title)}} */}
-                </div>
-                <div className="note__body-content">
-                    <textarea className="note-txt" placeholder="Start writing" />
-                    {/* {onChange={handlDescChange}} */}
-                     {/* {onBlur={() => handleUpdatedNote('desc)}} */}
-                </div>
-            </div>
-        </div>
-    )
-}
-
+    // }
 //Title: value={title}
 //textarea value = {desc}
 

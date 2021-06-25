@@ -3,11 +3,13 @@ import thunk from "redux-thunk";
 import sessionReducer from './session';
 import usersReducer from './users';
 import notesReducer from "./notes";
+import notebooksReducer from "./notebook"
 //import reducer & set a key of session in combineReducer objec argument
 const rootReducer = combineReducers({
   session: sessionReducer,
   users: usersReducer,
-  notes: notesReducer
+  notes: notesReducer,
+  notebooks: notebooksReducer
 });
 
 let enhancer;

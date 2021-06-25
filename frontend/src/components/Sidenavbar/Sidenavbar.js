@@ -1,6 +1,6 @@
 import React from 'react';
 import './Sidenavbar.css';
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 // import { postRequest }
 // import { BASE_URL, CREATE_NOTE}
 //import { NotesContext }
@@ -48,12 +48,14 @@ const Sidenavbar = () => {
                 </div>
                 <div className="sidenavbar-top__create-note">
                 {/* <div className="create-note-btn" onClick={handleCreateNote}> */}
+                <Link to="/all-notes/:id" style={{ color: "inherit", textDecoration: 'inherit'}}>
                     <div className="create-note-btn">
                         <i className="far fa-plus-square"></i>
                         <div className="title">
                             New Note
                         </div>
                     </div>
+                    </Link>
                 </div>
                 <div className="sidenavbar-top__menu-item">
                     <ul>
@@ -64,9 +66,9 @@ const Sidenavbar = () => {
                             </NavLink>
                         </li>
                         <li className="menu-li-2">
-                            <NavLink to="/thing-2"  style={{ color: "inherit", textDecoration: 'inherit'}}>
+                            <NavLink to="/test-notes"  style={{ color: "inherit", textDecoration: 'inherit'}}>
                             <i className="far fa-star"></i>
-                            Thing 2
+                            Set List
                             </NavLink>
                         </li>
                         <li className="menu-li-3">
