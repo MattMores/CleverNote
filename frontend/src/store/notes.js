@@ -4,6 +4,7 @@ import { csrfFetch } from "./csrf";
 const GET_ALL_NOTES = 'notes/GET_ALL_NOTES';
 const ADD_NOTE = 'notes/ADD_NOTE';
 const UPDATE_NOTE = 'notes/UPDATE_NOTE'
+// const DELETE_NOTE = 'note/DELETE_NOTE';
 // const GET_ONE_NOTE = "notes/GET_ONE_NOTE";
 
 // Define Action Creators // Thunk next will have to pass the users it takes
@@ -22,6 +23,11 @@ const addNote = (note) => ({
     type: UPDATE_NOTE,
     note
   });
+
+  // const deleteNote = (noteId) => ({
+  //   type: DELETE_NOTE,
+  //   noteId,
+  // });
 
   // const getOneNote = (note) => ({
   //   type: GET_ONE_NOTE,
@@ -74,6 +80,16 @@ export const noteUpdate = (note) => async (dispatch) => {
   // return response;
 };
 
+// export const deleteNotes = (id) => async (dispatch) => {
+//   await csrfFetch('/api/notes/', {
+//     method: 'DELETE',
+//     headers: { 'Content-Type': 'application/json' },
+//     body: JSON.stringify({ id }),
+//   });
+
+//   dispatch(deleteNote(id));
+// };
+
 // export const grabOneNote = (noteId) => async (dispatch) => {
 //   const res = await fetch(`/api/notes/${noteId}`); // api/users we defined in backend
 //   // this works b/c we set a proxy in our package.json aka localhost:5000
@@ -113,6 +129,11 @@ let newState;
         const { note } = action
         newState = {...state, [note.id] : note}
         return newState;
+    // case DELETE_NOTE:
+    //     delete state[action.noteId.id];
+    //     return {
+    //       ...state
+    //     }
     // case GET_ONE_NOTE: {
     //   return {
     //     ...state,

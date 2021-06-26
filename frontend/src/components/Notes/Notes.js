@@ -93,13 +93,12 @@ const notebookChange = (e) => {
                     />
                      {/* {onBlur={() => handleUpdatedNote('title)}} */}
                 </div>
-                <div className="note__body-content">
+                <div className="note__body-content" >
                     {/* <textarea className="note-txt" placeholder="Start writing" /> */}
                     <ReactQuill className="note-txt" placeholder="Write a Joke Bitch"
                     value={content} onChange={(e) => contentChange(e)}
                     />
-                    {/* onChange={e => setNoteText(e)} */}
-                     {/* {onBlur={() => handleUpdatedNote('desc)}} */}
+
                 </div>
                     <div>
                         <button type="submit">Submit</button>

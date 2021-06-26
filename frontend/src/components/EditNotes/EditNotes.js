@@ -41,6 +41,20 @@ const EditNotes = () => {
         setTitle(currentNote?.title)
     }, [currentNote?.title, currentNote?.content, dispatch, user]);
 
+    useEffect(() => {
+        if (content) {
+        let cleanContent = [content]
+        for (let index = 0; index < content.length; index++) {
+        const letter = content[index];
+        cleanContent[0] = cleanContent[0].replace("<strong>","").replace("</strong>","").replace("<p>", "")
+        .replace("<em>", "").replace("</em>", "").replace("<u>","").replace("</u>","").replace("</p>", "").replace("<a", "").replace("</a>", "")
+        .replace("<br>", "").replace("<ul>", "").replace("</ul>", "").replace("<li>", "").replace("</li>", "").replace(">", "")
+        .replace("</p", "").replace("<", "").replace("/", "")
+        }
+        setContent(cleanContent[0])
+    }
+    }, [content])
+
     return (
       <form className="add-form" onSubmit={onSubmit}>
        <div className="note">
@@ -75,7 +89,14 @@ const EditNotes = () => {
                 <div className="note__body-content">
                     {/* <textarea className="note-txt" placeholder="Start writing" /> */}
                     <textarea className="note-txt" placeholder="Write a Joke"
-                    onChange={e => setContent(e.target.value)} value={content}>
+                    onChange={e => setContent(e.target.value)} value={content}
+                  // console.log(content.split("</p>" || "</a>" || "<br>" || "</ul>" || "</li>" || "<p>" || "<a>" || "<ul>" || "<li>"))
+                //   for (let index = 0; index < array.length; index++) {
+                //       const element = array[index];
+
+                //   }
+                //   content.replace("<p>", "").replace("</p>", "").replace("<a", "").replace(">", "").replace("</a>", "")
+                    >
                     </textarea>
                     {/* onChange={e => setNoteText(e)} */}
                      {/* {onBlur={() => handleUpdatedNote('desc)}} */}

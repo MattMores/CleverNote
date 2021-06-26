@@ -85,8 +85,10 @@ const Notebook = (props) => {
                         <div className="note-card__title">
                             {note.title}
                         </div>
-                        <div className="note-card__desc">
-                            {note.content}
+                        <div className="note-card__desc"
+                        dangerouslySetInnerHTML={{__html : note.content}}
+                        >
+                            {/* {note.content} */}
                         </div>
                     </div>
                     <div className="note-card__date">
