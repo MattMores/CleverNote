@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { restoreUser } = require('../../utils/auth');
 
 const { Note, Notebook, User } = require('../../db/models');
 
@@ -53,12 +54,12 @@ router.put('/', asyncHandler(async (req, res) => {
     // };
   }));
 
-  // router.delete('/', restoreUser, asyncHandler(async (req, res) => {
-  //     const { id } = req.body.id;
-  //     const note = await Note.findByPk(id);
-  //     await note.destroy();
-  //     res.json(note);
-  //   })
-  // );
+  router.delete('/', restoreUser, asyncHandler(async (req, res) => {
+      const { id } = req.body;
+      const note = await Note.findByPk(id);
+      await note.destroy();
+      res.json(note);
+    })
+  );
 
 module.exports = router;

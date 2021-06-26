@@ -46,6 +46,7 @@ const onSubmit = (e) => {
         setTitle('')
         setNotebook('')
         dispatch(getAllNotes());
+        dispatch(getAllNotebooks());
         // setUpdatedAt('')
     };
 

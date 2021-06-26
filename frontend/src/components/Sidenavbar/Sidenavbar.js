@@ -69,7 +69,7 @@ const Sidenavbar = () => {
                     <div className="create-note-btn-2">
                         <i className="far fa-plus-square"></i>
                         <div className="title">
-                            New Notebok
+                            New Standup
                         </div>
                     </div>
                     </Link>
@@ -119,7 +119,7 @@ const Sidenavbar = () => {
                 <div className="sidenavbar-bottom">
                     <div className="sidenavbar-bottom__need-help">
                         <i className="fas fa-shoe-prints"></i>
-                        Matt Mores Production LLC
+                        Matt Mores Production
                     </div>
                 </div>
             </div>

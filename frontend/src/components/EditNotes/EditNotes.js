@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router';
 import { getAllNotes } from '../../store/notes';
 import { noteUpdate } from '../../store/notes';
+import { deleteNotes } from "../../store/notes"
 
 var _ = require('lodash');
 
@@ -25,13 +26,21 @@ const EditNotes = () => {
     const [title, setTitle] = useState(currentNote?.title);
     const [content, setContent] = useState(currentNote?.content);
 
-    const onSubmit = (e) => {
+    const onEditSubmit = (e) => {
         e.preventDefault();
-        const note = {id:noteid, title, content, notebookId:currentNote, userId:user.id}
+        const note = {id:noteid, title, content, notebookId:currentNote, userId:user?.id}
         dispatch(noteUpdate(note))
         setContent('')
         setTitle('')
     };
+
+    // const onDeleteSubmit = (e) => {
+    //     e.preventDefault();
+    //     const note = {id:noteid, title, content, notebookId:currentNote, userId:user.id}
+    //     dispatch(deleteNotes(note))
+    //     setContent('')
+    //     setTitle('')
+    // }
 
     useEffect(() => {
         if (user) {
@@ -56,7 +65,7 @@ const EditNotes = () => {
     }, [content])
 
     return (
-      <form className="add-form" onSubmit={onSubmit}>
+      <form className="add-form" onSubmit={onEditSubmit}>
        <div className="note">
             <div className="note__header">
                 <div className="note__header-date">
@@ -102,6 +111,7 @@ const EditNotes = () => {
                      {/* {onBlur={() => handleUpdatedNote('desc)}} */}
                 </div>
                 <button type="submit">Edit</button>
+                {/* <label><input onClick={onDeleteSubmit} type="checkbox" name="check" id="test" />some text here</label> */}
             </div>
         </div>
      </form>

@@ -49,6 +49,7 @@
   flex-direction: column;
   border: 1px solid #e6e6e6;
   text-decoration: none;
+  overflow: auto;
 }
 
 .note-list .note-list__body .note-card .note-card__head {

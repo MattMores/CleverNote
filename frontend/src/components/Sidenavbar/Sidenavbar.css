@@ -9,6 +9,7 @@
 
 .sidenavbar .sidenavbar-top {
   flex: 1;
+  overflow: auto;
 }
 
 .sidenavbar-top__profile {
@@ -192,8 +193,9 @@
   padding: 8px 15px;
   border-top: 1px solid #555;
   border-top-style: solid;
-  position: fixed;
+  position: sticky;
   bottom: 0px;
+  background-color: black;
 }
 
 .sidenavbar .sidenavbar__need-help {
