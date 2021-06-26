@@ -21,6 +21,12 @@ module.exports = {
         title: "Charlie Murhpy's True Hollywood Stories",
         content: "Charlie Murphy retells his encounters with 1980s celebrities, the most popular Rick James beating him up and Prince serving him pancakes. "
       },
+      {
+        userId: 1,
+        notebookId: 4,
+        title: "Demo User Note Title Test",
+        content: "Demo User Note Description Test"
+      },
     ], {});
   },
 

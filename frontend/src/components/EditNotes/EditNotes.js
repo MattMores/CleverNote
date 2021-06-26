@@ -6,6 +6,8 @@ import { useState, useEffect } from 'react';
 // import { grabOneNote } from '../../store/notes';
 import { useParams } from 'react-router';
 import { getAllNotes } from '../../store/notes';
+import { noteUpdate } from '../../store/notes';
+
 var _ = require('lodash');
 
 const EditNotes = () => {
@@ -20,14 +22,27 @@ const EditNotes = () => {
     })
     console.log(currentNote);
 
+    const [title, setTitle] = useState(currentNote?.title);
+    const [content, setContent] = useState(currentNote?.content);
+
+    const onSubmit = (e) => {
+        e.preventDefault();
+        const note = {id:noteid, title, content, notebookId:currentNote, userId:user.id}
+        dispatch(noteUpdate(note))
+        setContent('')
+        setTitle('')
+    };
+
     useEffect(() => {
         if (user) {
         dispatch(getAllNotes(user.id));
         }
-    }, [dispatch, user]);
+        setContent(currentNote?.content)
+        setTitle(currentNote?.title)
+    }, [currentNote?.title, currentNote?.content, dispatch, user]);
 
     return (
-      <form className="add-form" onSubmit={""}>
+      <form className="add-form" onSubmit={onSubmit}>
        <div className="note">
             <div className="note__header">
                 <div className="note__header-date">
@@ -53,15 +68,15 @@ const EditNotes = () => {
             <div className="note__body">
                 <div className="note__body-head">
                     <input className="note__input" placeholder="Title"
-                    value={currentNote && currentNote.title}
+                    onChange={e => setTitle(e.target.value)} value={title}
                     />
                      {/* {onBlur={() => handleUpdatedNote('title)}} */}
                 </div>
                 <div className="note__body-content">
                     {/* <textarea className="note-txt" placeholder="Start writing" /> */}
                     <textarea className="note-txt" placeholder="Write a Joke"
-                    value={currentNote && currentNote?.content}
-                    />
+                    onChange={e => setContent(e.target.value)} value={content}>
+                    </textarea>
                     {/* onChange={e => setNoteText(e)} */}
                      {/* {onBlur={() => handleUpdatedNote('desc)}} */}
                 </div>

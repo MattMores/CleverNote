@@ -2,6 +2,7 @@ import { csrfFetch } from "./csrf";
 
 // Define Action Types as Constants // Like the domain name
 const GET_ALL_NOTEBOOKS = 'notebooks/GET_ALL_NOTEBOOKS';
+const ADD_NOTEBOOK = 'notebooks/ADD_NOTEBOOK'
 
 // Define Action Creators // Thunk next will have to pass the users it takes
 // in to the database
@@ -10,10 +11,10 @@ const setNotebooks = (notebooks) => ({
   notebooks, // payload
 });
 
-// const addNotebook = (notebook) => ({
-//     type: ADD_NOTEBOOKS,
-//     notebook
-//   });
+const addNotebook = (notebook) => ({
+    type: ADD_NOTEBOOK,
+    notebook
+  });
 
 // Define Thunk Creators
 export const getAllNotebooks = () => async (dispatch) => {
@@ -25,22 +26,19 @@ export const getAllNotebooks = () => async (dispatch) => {
   //we got from the backend
 };
 
-// export const noteCreate = (note) => async (dispatch) => {
-//     console.log(note)
-//     const { userId, title, content, notebookId } = note; //notebookId
-//     const response = await csrfFetch("/api/notes/", {
-//         method: "POST",
-//         body: JSON.stringify({
-//             notebookId,
-//             userId,
-//             title,
-//             content,
-//         }),
-//     });
-//     const newNote = await response.json();
-//     dispatch(addNote(newNote));
-//     // return response;
-// };
+export const notebookCreate = (notebookz) => async (dispatch) => {
+    const { userId, notebook } = notebookz;
+    const response = await csrfFetch("/api/notebooks/", {
+        method: "POST",
+        body: JSON.stringify({
+            userId,
+            notebook,
+        }),
+    });
+    const newNotebook = await response.json();
+    dispatch(addNotebook(newNotebook));
+    // return response;
+};
 
 
 // Define an initial state
@@ -49,11 +47,10 @@ const initialState = {}; // defining how you want your redux store to be created
 
 // Define a reducer
 const notebooksReducer = (state = initialState, action) => {
-// let newState;
+let newState;
   switch (action.type) {
     case GET_ALL_NOTEBOOKS:
       const allNotebooks = {};
-      console.log(action.notebooks);
       action.notebooks.forEach((notebook) => { // normalize the state
         allNotebooks[notebook.id] = notebook;
       });
@@ -62,6 +59,10 @@ const notebooksReducer = (state = initialState, action) => {
         ...state, // updated version of the state
         ...allNotebooks,
       };
+    case ADD_NOTEBOOK:
+      newState = {}
+      newState = {...state, [action.notebook.id] : action.notebook}
+      return newState;
     default: // action goes through entire reducer and slices of state
       return state;
   }

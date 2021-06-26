@@ -9,24 +9,24 @@ import { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllNotes, noteCreate } from '../../store/notes'
 import { getUsers } from '../../store/users'
-import { getAllNotebooks } from '../../store/notebook'
+import { getAllNotebooks, notebookCreate } from '../../store/notebook'
 
 
 const Notes = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
+    const [notebook, setNotebook] = useState('');
+    const notesStore = useSelector(state => Object.values(state.notes));
     const userId = useSelector(state => state.session.user.id);
     const notebooks = useSelector(state => Object.values(state.notebooks));
-    console.log(notebooks)
     const dispatch = useDispatch();
     const allNotes = useSelector(state => Object.values(state.notes));
     // console.log(allNotes)
     const currentUserNote = allNotes.find(note => note?.userId === userId)
-    console.log(currentUserNote)
+    console.log(currentUserNote);
     // const currentNote = currentUserNotes[0];
     const currentUserNotebook = notebooks.find(notebook => notebook?.id === currentUserNote?.notebookId)
-    console.log(currentUserNotebook);
-    const notebookId = currentUserNote?.notebookId
+    const notebookId = currentUserNote?.notebookId === false ? 1 : currentUserNote?.notebookId;
 
     useEffect(() => {
         dispatch(getAllNotes());
@@ -39,9 +39,12 @@ const Notes = () => {
 const onSubmit = (e) => {
         e.preventDefault();
         const note = {userId, title, content, notebookId}
+        const notebookSubmit = {userId, notebook}
         dispatch(noteCreate(note))
+        dispatch(notebookCreate(notebookSubmit))
         setContent('')
         setTitle('')
+        setNotebook('')
         // setUpdatedAt('')
     };
 
@@ -53,6 +56,10 @@ const contentChange = (e) => {
         setContent(e)
         console.log(content)
     }
+
+const notebookChange = (e) => {
+        setNotebook(e.target.value)
+}
 
     return (
       <form className="add-form" onSubmit={onSubmit}>
@@ -93,7 +100,12 @@ const contentChange = (e) => {
                     {/* onChange={e => setNoteText(e)} */}
                      {/* {onBlur={() => handleUpdatedNote('desc)}} */}
                 </div>
-                <button type="submit">Submit</button>
+                    <div>
+                        <button type="submit">Submit</button>
+                    </div>
+                    <div>
+                        <input placeholder="add notebook" value={notebook} onChange={(e) => setNotebook(e.target.value)}/>
+                    </div>
             </div>
         </div>
      </form>

@@ -3,6 +3,7 @@ import { csrfFetch } from "./csrf";
 // Define Action Types as Constants // Like the domain name
 const GET_ALL_NOTES = 'notes/GET_ALL_NOTES';
 const ADD_NOTE = 'notes/ADD_NOTE';
+const UPDATE_NOTE = 'notes/UPDATE_NOTE'
 // const GET_ONE_NOTE = "notes/GET_ONE_NOTE";
 
 // Define Action Creators // Thunk next will have to pass the users it takes
@@ -14,6 +15,11 @@ const setNotes = (notes) => ({
 
 const addNote = (note) => ({
     type: ADD_NOTE,
+    note
+  });
+
+  const updateNote = (note) => ({
+    type: UPDATE_NOTE,
     note
   });
 
@@ -47,6 +53,25 @@ export const noteCreate = (note) => async (dispatch) => {
     console.log(newNote)
     dispatch(addNote(newNote));
     // return response;
+};
+
+export const noteUpdate = (note) => async (dispatch) => {
+  console.log(note)
+  const { id, title, content, notebookId, userId } = note; //notebookId
+  const response = await csrfFetch("/api/notes/", {
+      method: "PUT",
+      body: JSON.stringify({
+          id,
+          title,
+          content,
+          notebookId,
+          userId
+      }),
+  });
+  const updatedNote = await response.json();
+  console.log(updatedNote)
+  dispatch(updateNote(updatedNote));
+  // return response;
 };
 
 // export const grabOneNote = (noteId) => async (dispatch) => {
@@ -83,6 +108,10 @@ let newState;
         newState = {}
         // console.log(action.note)
         newState = {...state, [action.note.id] : action.note}
+        return newState;
+    case UPDATE_NOTE:
+        const { note } = action
+        newState = {...state, [note.id] : note}
         return newState;
     // case GET_ONE_NOTE: {
     //   return {

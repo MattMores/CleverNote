@@ -1,6 +1,10 @@
 import React from 'react';
 import './Sidenavbar.css';
 import { NavLink, Link } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllNotebooks } from '../../store/notebook'
+import { useEffect } from "react"
+
 // import { postRequest }
 // import { BASE_URL, CREATE_NOTE}
 //import { NotesContext }
@@ -8,25 +12,25 @@ import { NavLink, Link } from "react-router-dom";
 // import {useHIstory}
 
 const Sidenavbar = () => {
-    // const notesContext = useContext(NotesContext);
-    // const [error, setError] = useState(null);
-    // const history = useHistory();
+    const dispatch = useDispatch();
+    const user = useSelector(state => state.session.user);
+    const notebooksStore = useSelector(state => Object.values(state.notebooks))
+    const notebooks = notebooksStore.filter(notebook => {
+        if ((notebook?.User?.id === user?.id)) {
+            console.log(user.id)
+            return notebook
+        }
+        else {
+            return null
+        }
+    })
 
-    // const handleCreateNote = async () => {
-    //     const response = await postRequest(`${BASE_URL}${CREATE_NOTE}`);
-    //     console.log(response);
-    //     if(response.error){
-    //         setError(response.error);
-    //         return false;
-    //     }
-    //      if (response._id) {
-    //          notesContext.notesDispatch({ type: 'createNoteSuccess', payload: response })
-    //          history.pushState({
-    //              pathname: `/all-notes/${response._id}`,
-    //              note: response
-    //          })
-    //      }
-    // }
+    useEffect(() => {
+        if (user) {
+        dispatch(getAllNotebooks(user.id));
+        }
+    }, [dispatch, user]);
+
     return (
         <div className="sidenavbar">
             <div className="sidenavbar-top">
@@ -58,6 +62,18 @@ const Sidenavbar = () => {
                     </div>
                     </Link>
                 </div>
+                <div className="sidenavbar-top__create-note">
+                {/* <div className="create-note-btn" onClick={handleCreateNote}> */}
+                {/* //new note */}
+                <Link to="/all-notes/:id" style={{ color: "inherit", textDecoration: 'inherit'}}>
+                    <div className="create-note-btn-2">
+                        <i className="far fa-plus-square"></i>
+                        <div className="title">
+                            New Notebok
+                        </div>
+                    </div>
+                    </Link>
+                </div>
                 <div className="sidenavbar-top__menu-item">
                     <ul>
                         <li className="menu-li-1">
@@ -72,13 +88,15 @@ const Sidenavbar = () => {
                             Set List
                             </NavLink>
                         </li>
+                        {notebooks && notebooks.map(notebook => (
                         <li className="menu-li-3">
                             <NavLink to="/trash" style={{ color: "inherit", textDecoration: 'inherit'}}>
                             <i className="far fa-star"></i>
-                            Notebook 1
+                            {notebook.title}
                             </NavLink>
                         </li>
-                        <li className="menu-li-4">
+                        ))}
+                        {/* <li className="menu-li-4">
                             <NavLink to="/trash" style={{ color: "inherit", textDecoration: 'inherit'}}>
                             <i className="far fa-star"></i>
                             Notebook 2
@@ -95,7 +113,7 @@ const Sidenavbar = () => {
                             <i className="far fa-star"></i>
                             Notebook 4
                             </NavLink>
-                        </li>
+                        </li> */}
                     </ul>
                 </div>
                 <div className="sidenavbar-bottom">
@@ -110,3 +128,23 @@ const Sidenavbar = () => {
 }
 
 export default Sidenavbar;
+
+    // const notesContext = useContext(NotesContext);
+    // const [error, setError] = useState(null);
+    // const history = useHistory();
+
+    // const handleCreateNote = async () => {
+    //     const response = await postRequest(`${BASE_URL}${CREATE_NOTE}`);
+    //     console.log(response);
+    //     if(response.error){
+    //         setError(response.error);
+    //         return false;
+    //     }
+    //      if (response._id) {
+    //          notesContext.notesDispatch({ type: 'createNoteSuccess', payload: response })
+    //          history.pushState({
+    //              pathname: `/all-notes/${response._id}`,
+    //              note: response
+    //          })
+    //      }
+    // }

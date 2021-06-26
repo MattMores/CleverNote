@@ -15,8 +15,19 @@ import { Link } from 'react-router-dom';
 const Notebook = (props) => {
     const {title} = props;
     const dispatch = useDispatch();
-    const notes = useSelector(state => Object.values(state.notes));
     const user = useSelector(state => state.session.user);
+    const notesStore = useSelector(state => Object.values(state.notes));
+    const notes = notesStore.filter(note => {
+        if ((note?.User?.id === user?.id)) {
+            console.log(user.id)
+            return note
+        }
+        else {
+            return null
+        }
+    })
+
+    // console.log(notes)
     // const [error, setError] = useState(null)
     // const notesContext = useContext(NotesContext);
     // const match = useRouteMatch();

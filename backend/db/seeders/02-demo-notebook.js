@@ -15,6 +15,10 @@ module.exports = {
         userId: 4,
         title: "Charlie Murhpy;s True Hollywood Stories"
       },
+      {
+        userId: 1,
+        title: "Demo User Notebook"
+      },
     ], {});
   },
 
