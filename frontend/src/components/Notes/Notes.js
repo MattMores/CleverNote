@@ -29,11 +29,11 @@ const Notes = () => {
     const notebookId = currentUserNote?.notebookId === false ? 1 : currentUserNote?.notebookId;
 
     useEffect(() => {
-        dispatch(getAllNotes());
+        // dispatch(getAllNotes());
         dispatch(getAllNotebooks());
         // dispatch(getUsers());
         // dispatch(noteCreate());
-    }, [dispatch])
+    }, [dispatch, setTitle, setContent, setNotebook])
 
 
 const onSubmit = (e) => {
@@ -45,6 +45,7 @@ const onSubmit = (e) => {
         setContent('')
         setTitle('')
         setNotebook('')
+        dispatch(getAllNotes());
         // setUpdatedAt('')
     };
 
