@@ -11,6 +11,7 @@ import Header from "./components/NotesTracker/Header";
 import Tasks from "./components/NotesTracker/Tasks";
 import AddTask from "./components/NotesTracker/AddTask";
 import EditNotes from "./components/EditNotes/EditNotes"
+import { HomeIndex } from "./components/Homepage/homepage";
 // use this thunk action inside of App.js after the App component's first render.
 function App() {
   const dispatch = useDispatch();
@@ -68,6 +69,9 @@ const toggleReminder = (id) => {
       <Navigation isLoaded={isLoaded} />
       {isLoaded && (
           <Switch>
+          <Route exact path='/'>
+            <HomeIndex />
+          </Route>
             <Route path="/signup">
                <SignupFormPage />
            </Route>
@@ -92,10 +96,10 @@ const toggleReminder = (id) => {
                 <EditNotes />
               </Route>
             </Route>
-            <Route path="/trash">
+            <Route path="/notebooks">
               <Sidenavbar />
-              <Notebooks title="Trash" />
-              <Route path="/trash/:id">
+              <Notebooks title="Notebooks" />
+              <Route path="/notebooks/:id">
                   <Notes />
               </Route>
             </Route>

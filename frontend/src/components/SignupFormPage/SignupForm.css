@@ -1,4 +1,18 @@
 /* Define all your CSS styling rules for the SignupFormPage component here */
 body {
-  background-color: coral;
+  background-color: white;
+}
+
+.nav-btn {
+  border-radius: 10px;
+  border: none;
+  margin: 15px;
+  width: 80px;
+  height: 30px;
+  margin-top: 5px;
+  /* background-color: #03a82d; */
+  background-color: white;
+  padding: 8px 10px;
+  border-radius: 50px;
+  cursor: pointer;
 }

@@ -4,6 +4,7 @@ import { NavLink, Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllNotebooks } from '../../store/notebook'
 import { useEffect } from "react"
+import { getAllNotes } from '../../store/notes';
 
 // import { postRequest }
 // import { BASE_URL, CREATE_NOTE}
@@ -15,6 +16,7 @@ const Sidenavbar = () => {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
     const notebooksStore = useSelector(state => Object.values(state.notebooks))
+    const notesStore = useSelector(state => Object.values(state.notes));
     const notebooks = notebooksStore.filter(notebook => {
         if ((notebook?.User?.id === user?.id)) {
             console.log(user.id)
@@ -90,7 +92,7 @@ const Sidenavbar = () => {
                         </li>
                         {notebooks && notebooks.map(notebook => (
                         <li className="menu-li-3">
-                            <NavLink to="/trash" style={{ color: "inherit", textDecoration: 'inherit'}}>
+                            <NavLink to={`/notebooks/${notebook.id}`} style={{ color: "inherit", textDecoration: 'inherit'}}>
                             <i className="far fa-star"></i>
                             {notebook.title}
                             </NavLink>

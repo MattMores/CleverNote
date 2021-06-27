@@ -15,7 +15,7 @@ function SignupFormPage() {
 // If there is a current session user in the Redux store, then
 // redirect the user to the "/" path if trying to access the SignupFormPage.
   if (sessionUser) return <Redirect to="/" />;
-  
+
   const handleSubmit = (e) => {
     e.preventDefault();
      // On submit of the form, validate that the confirm
@@ -75,7 +75,7 @@ function SignupFormPage() {
         />
       </label>
       <button
-      type="submit">Sign Up</button>
+      type="submit" className="nav-btn">Sign Up</button>
     </form>
   );
 }

@@ -30,7 +30,7 @@ const Notes = () => {
 
     useEffect(() => {
         // dispatch(getAllNotes());
-        dispatch(getAllNotebooks());
+        // dispatch(getAllNotebooks());
         // dispatch(getUsers());
         // dispatch(noteCreate());
     }, [dispatch, setTitle, setContent, setNotebook])

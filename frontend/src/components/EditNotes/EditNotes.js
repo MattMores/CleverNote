@@ -34,13 +34,13 @@ const EditNotes = () => {
         setTitle('')
     };
 
-    // const onDeleteSubmit = (e) => {
-    //     e.preventDefault();
-    //     const note = {id:noteid, title, content, notebookId:currentNote, userId:user.id}
-    //     dispatch(deleteNotes(note))
-    //     setContent('')
-    //     setTitle('')
-    // }
+    const onDeleteSubmit = (e) => {
+        e.preventDefault();
+        const note = {id:noteid, title, content, notebookId:currentNote, userId:user?.id}
+        dispatch(deleteNotes(note))
+        setContent('')
+        setTitle('')
+    }
 
     useEffect(() => {
         if (user) {
@@ -55,10 +55,10 @@ const EditNotes = () => {
         let cleanContent = [content]
         for (let index = 0; index < content.length; index++) {
         const letter = content[index];
-        cleanContent[0] = cleanContent[0].replace("<strong>","").replace("</strong>","").replace("<p>", "")
-        .replace("<em>", "").replace("</em>", "").replace("<u>","").replace("</u>","").replace("</p>", "").replace("<a", "").replace("</a>", "")
-        .replace("<br>", "").replace("<ul>", "").replace("</ul>", "").replace("<li>", "").replace("</li>", "").replace(">", "")
-        .replace("</p", "").replace("<", "").replace("/", "")
+        cleanContent[0] = cleanContent[0]?.replace("<strong>","")?.replace("</strong>","")?.replace("<p>", "")
+        ?.replace("<em>", "")?.replace("</em>", "")?.replace("<u>","")?.replace("</u>","")?.replace("</p>", "")?.replace("<a", "").replace("</a>", "")
+        ?.replace("<br>", "")?.replace("<ul>", "")?.replace("</ul>", "")?.replace("<li>", "")?.replace("</li>", "")?.replace(">", "")
+        ?.replace("</p", "")?.replace("<", "")?.replace("/", "")
         }
         setContent(cleanContent[0])
     }
@@ -111,7 +111,7 @@ const EditNotes = () => {
                      {/* {onBlur={() => handleUpdatedNote('desc)}} */}
                 </div>
                 <button type="submit">Edit</button>
-                {/* <label><input onClick={onDeleteSubmit} type="checkbox" name="check" id="test" />some text here</label> */}
+                <label><input onClick={onDeleteSubmit} type="checkbox" name="check" id="test" />some text here</label>
             </div>
         </div>
      </form>

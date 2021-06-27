@@ -1,0 +1,99 @@
+body {
+  font-family: Helvetica Neue, Helvetica, Arial, Helvetica, sans-serif;
+  margin: 0px;
+  padding: 0px;
+}
+.lowerNav {
+  background-color: black;
+  /* padding:20px; */
+  display: flex;
+  height: 41px;
+  justify-content: flex-start;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.nav-btn {
+  border-radius: 10px;
+  border: none;
+  margin: 15px;
+  width: 80px;
+  height: 30px;
+  margin-top: 5px;
+  /* background-color: #03a82d; */
+  background-color: white;
+  padding: 8px 10px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.nav-btn-2 {
+  border-radius: 10px;
+  border: none;
+  margin: 13px;
+  width: 80px;
+  height: 30px;
+  margin-top: 5px;
+  background-color: white;
+  padding: 8px 20px;
+  border-radius: 45px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.sidenavbar .create-note-btn {
+  display: flex;
+  align-items: center;
+  background: #03a82d;
+  padding: 8px 10px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.profile-dropdown li {
+  color: black;
+  background: black;
+  color: white;
+}
+.profile-dropdown button {
+  width: 190px;
+}
+
+.upperNav {
+  /* letter-spacing: 8px; */
+  background-color: #03a82d;
+  align-content: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0px;
+  margin-top: 0px;
+  height: 44px;
+}
+/* .upperNav button {
+  position: relative;
+  left: 500px;
+} */
+
+.header img {
+  /* float: left; */
+  margin-top: 20px;
+  margin-bottom: 0px;
+  width: 156px;
+  height: 35px;
+}
+
+/* .header h1 {
+  position: relative;
+  top: 18px;
+  left: 10px;
+} */

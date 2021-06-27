@@ -36,7 +36,7 @@ function ProfileButton({ user }) {
 
   return (
     <>
-      <button onClick={openMenu}>
+      <button className="nav-btn" onClick={openMenu}>
         <i className="far fa-futbol" />
       </button>
       {showMenu && (

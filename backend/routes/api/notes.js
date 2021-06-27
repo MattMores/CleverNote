@@ -45,7 +45,7 @@ router.put('/', asyncHandler(async (req, res) => {
     // console.log("--------------------", id, title, content, notebookId, userId); //notebookId
     userId = Number(userId)
     const note = await Note.findByPk(id) //notebookId
-    console.log("------------------", note)
+    // console.log("------------------", note)
     // if (title === note.dataValues.title && content !== note.dataValues.content) { // unreadable object before you res.json
     //   return note
     // } else {
@@ -55,7 +55,8 @@ router.put('/', asyncHandler(async (req, res) => {
   }));
 
   router.delete('/', restoreUser, asyncHandler(async (req, res) => {
-      const { id } = req.body;
+      const { id } = req.body.id;
+      console.log("----------------------", id)
       const note = await Note.findByPk(id);
       await note.destroy();
       res.json(note);

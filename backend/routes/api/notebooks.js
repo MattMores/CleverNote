@@ -8,7 +8,7 @@ const { restoreUser } = require('../../utils/auth');
 
 router.get('/', restoreUser, asyncHandler(async (req, res) => {
     const notebooks = await Notebook.findAll({include: [User, Note]})
-    console.log(notebooks)
+    // console.log(notebooks)
     res.json(notebooks)
 }))
 

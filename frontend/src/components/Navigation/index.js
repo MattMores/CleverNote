@@ -18,19 +18,43 @@ function Navigation({ isLoaded }){
     sessionLinks = (
       <>
         <LoginFormModal />
-        <NavLink to="/signup">Sign Up</NavLink>
+        <NavLink to="/signup" className='nav-btn-2'>Sign Up</NavLink>
       </>
     );
   }
   return (
-//render an unordered list with a navigation link to the home page
-    <ul>
-      <li>
-        <NavLink exact to="/">Home</NavLink>
-        {isLoaded && sessionLinks}
-      </li>
-    </ul>
-  );
+    <>
+        <header className='upperNav'>
+          <div class="header">
+              <img src="https://i.ibb.co/XtmK2Dp/63823-Clever-Note-RK-01.jpg" alt="logo" />
+              {/* <h1>My website name</h1> */}
+          </div>
+        </header>
+        <header className='lowerNav'>
+            <div className='lowerNav__div'>
+                <ul>
+                    <li>
+                        {/* {sessionUser &&
+                            <button className='nav-btn'>
+                                <NavLink to='/songs/add'>Add Song</NavLink>
+                            </button>
+                        } */}
+                        <button className='nav-btn'>
+                            <NavLink to='/'>Home</NavLink>
+                        </button>
+                        <button className='nav-btn'>
+                            <NavLink to='/artists'>Artists</NavLink>
+                        </button>
+                        <button className='nav-btn'>
+                            <NavLink exact to="/">Home</NavLink>
+                        </button>
+                        {isLoaded && sessionLinks}
+                    </li>
+                </ul>
+            </div>
+        </header>
+    </>
+);
 }
 
 export default Navigation;
