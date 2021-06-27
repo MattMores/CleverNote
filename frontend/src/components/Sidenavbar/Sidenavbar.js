@@ -67,14 +67,14 @@ const Sidenavbar = () => {
                 <div className="sidenavbar-top__create-note">
                 {/* <div className="create-note-btn" onClick={handleCreateNote}> */}
                 {/* //new note */}
-                <Link to="/all-notes/:id" style={{ color: "inherit", textDecoration: 'inherit'}}>
+                {/* <Link to="/all-notes/:id" style={{ color: "inherit", textDecoration: 'inherit'}}>
                     <div className="create-note-btn-2">
                         <i className="far fa-plus-square"></i>
                         <div className="title">
                             New Standup
                         </div>
                     </div>
-                    </Link>
+                    </Link> */}
                 </div>
                 <div className="sidenavbar-top__menu-item">
                     <ul>
@@ -85,7 +85,7 @@ const Sidenavbar = () => {
                             </NavLink>
                         </li>
                         <li className="menu-li-2">
-                            <NavLink to="/test-notes"  style={{ color: "inherit", textDecoration: 'inherit'}}>
+                            <NavLink to="/standup-set"  style={{ color: "inherit", textDecoration: 'inherit'}}>
                             <i className="far fa-star"></i>
                             Set List
                             </NavLink>

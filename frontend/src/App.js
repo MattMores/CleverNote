@@ -75,7 +75,7 @@ const toggleReminder = (id) => {
             <Route path="/signup">
                <SignupFormPage />
            </Route>
-           <Route exact path="/test-notes">
+           <Route exact path="/standup-set">
            <div className='container'>
               <Header onAdd={() => setShowAddTask(!showAddTask)}
               showAdd={showAddTask} />

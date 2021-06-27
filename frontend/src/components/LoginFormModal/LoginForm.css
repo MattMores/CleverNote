@@ -1,6 +1,6 @@
 /* Define all your CSS styling rules for the
 LoginFormPage component in the LoginForm.css file.*/
-.nav-btn {
+/* .nav-btn {
   border-radius: 10px;
   border: none;
   margin: 15px;
@@ -11,4 +11,88 @@ LoginFormPage component in the LoginForm.css file.*/
   padding: 8px 10px;
   border-radius: 50px;
   cursor: pointer;
+} */
+
+body {
+  background-color: white;
+}
+
+.nav-btn-4 {
+  border-radius: 10px;
+  border: none;
+  /* margin: 15px; */
+  margin-left: 200px;
+  width: 80px;
+  height: 30px;
+  margin-top: 5px;
+  background-color: #03a82d;
+  /* background-color: white; */
+  padding: 8px 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.signupContainer-1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-items: center;
+  margin-top: 75px;
+  margin-bottom: 100px;
+  /* border: black;
+    border-style: dotted; */
+}
+
+.signupForm-1 {
+  width: 500px;
+  /* align-items: center; */
+  justify-content: center;
+  border: black;
+  border-style: solid;
+  margin: 10px;
+  /* padding-bottom: 10px;
+    padding-top: 10px; */
+  padding: 15px;
+  font-family: "Open Sans";
+  font-weight: 1500px;
+}
+
+.input-5 {
+  margin-left: 10px;
+  font-size: 12px;
+  width: 200px;
+  margin-left: 13px;
+}
+
+.input-6 {
+  margin-left: 20px;
+  font-size: 12px;
+  width: 200px;
+  margin-left: 85px;
+}
+
+.top-section__photo-1 {
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  background-color: lightgray;
+  height: 250px;
+  /* border-width: 2px;
+    border-style: solid;
+    border-color: black; */
+  margin: auto;
+  display: flex;
+  /* padding: 40px; */
+  padding-top: 10px;
+  justify-content: center;
+  padding-bottom: 30px;
+  /* margin: auto; */
+}
+
+.errors-1 {
+  color: red;
+  justify-content: center;
+  text-align: center;
+  padding: 10px;
 }

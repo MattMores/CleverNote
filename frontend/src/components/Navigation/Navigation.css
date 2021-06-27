@@ -63,6 +63,11 @@ a {
   color: black;
   background: black;
   color: white;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  text-align: center;
 }
 .profile-dropdown button {
   width: 190px;

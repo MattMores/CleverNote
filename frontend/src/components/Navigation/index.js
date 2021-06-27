@@ -43,10 +43,10 @@ function Navigation({ isLoaded }){
                             <NavLink to='/'>Home</NavLink>
                         </button>
                         <button className='nav-btn'>
-                            <NavLink to='/artists'>Artists</NavLink>
+                            <NavLink to='/all-notes'>All Notes</NavLink>
                         </button>
                         <button className='nav-btn'>
-                            <NavLink exact to="/">Home</NavLink>
+                            <NavLink exact to="/standup-set">Stand-Up</NavLink>
                         </button>
                         {isLoaded && sessionLinks}
                     </li>
