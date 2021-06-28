@@ -22,19 +22,19 @@ function App() {
       {
           id: 1,
           text: 'Funny Joke 1',
-          day: 'Feb 5th at 2:30 pm',
+          day: 'June 28th at 5:55 PM',
           reminder: true
       },
       {
           id: 2,
           text: 'Funny Joke 2',
-          day: 'Feb 6th at 2:30 pm',
+          day: 'June 28th at 5:55 PM',
           reminder: true
       },
       {
           id: 3,
           text: 'Funny Joke 3',
-          day: 'Feb 7th at 2:30 pm',
+          day: 'June 28th at 5:55 PM',
           reminder: true
       }
     ])

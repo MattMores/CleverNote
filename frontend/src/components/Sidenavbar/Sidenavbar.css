@@ -1,10 +1,12 @@
 .sidenavbar {
   width: 240px;
-  background: #1a1a1a;
+  background: black;
   display: flex;
   flex-direction: column;
   color: #ccc;
   height: 100%;
+  border-top-style: solid;
+  border-color: white;
 }
 
 .sidenavbar .sidenavbar-top {
@@ -170,7 +172,12 @@
   text-decoration: none;
 }
 
-.sidenavbar .fa-star {
+.sidenavbar .fa-clipboard {
+  font-size: 14px;
+  margin-right: 8px;
+}
+
+.sidenavbar .fa-sticky-note {
   font-size: 14px;
   margin-right: 8px;
 }

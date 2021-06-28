@@ -38,10 +38,10 @@ const Sidenavbar = () => {
             <div className="sidenavbar-top">
                 <div className="sidenavbar-top__profile">
                     <div className="profile-icon">
-                        M
+                        D
                     </div>
                     <div className="profile-title">
-                        Matt Mores
+                        Dave Chappelle
                         <i className="fas fa-user-circle"></i>
                     </div>
                 </div>
@@ -80,20 +80,20 @@ const Sidenavbar = () => {
                     <ul>
                         <li className="menu-li-1">
                             <NavLink to="/all-notes" style={{ color: "inherit", textDecoration: 'inherit'}}>
-                            <i className="far fa-star"></i>
+                            <i className="far fa-sticky-note"></i>
                             All Notes
                             </NavLink>
                         </li>
-                        <li className="menu-li-2">
+                        {/* <li className="menu-li-2">
                             <NavLink to="/standup-set"  style={{ color: "inherit", textDecoration: 'inherit'}}>
                             <i className="far fa-star"></i>
                             Set List
                             </NavLink>
-                        </li>
+                        </li> */}
                         {notebooks && notebooks.map(notebook => (
                         <li className="menu-li-3">
                             <NavLink to={`/notebooks/${notebook.id}`} style={{ color: "inherit", textDecoration: 'inherit'}}>
-                            <i className="far fa-star"></i>
+                            <i className="far fa-clipboard"></i>
                             {notebook.title}
                             </NavLink>
                         </li>

@@ -20,9 +20,9 @@ export const HomeIndex = () => {
                 </div>
                 <section className='top-section__container'>
                 <div className='top-section__note'>
-                    <h1 className="top-joke">Take Note:</h1>
+                    <h1 className="top-joke">Take A Note:</h1>
                     <div className="joke">
-                        Life's A Joke
+                        Life's A Joke.
                     </div>
                 </div>
             </section>
