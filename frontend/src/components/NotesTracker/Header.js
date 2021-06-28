@@ -16,7 +16,7 @@ const Header = ({ title, onAdd, showAdd }) => {
 }
 
 Header.defaultProps = {
-  title: 'Set List',
+  title: 'Stand-Up Set List',
 }
 
 Header.propTypes = {

@@ -81,8 +81,8 @@ const toggleReminder = (id) => {
               showAdd={showAddTask} />
               {showAddTask && <AddTask onAdd={addTask} />}
               <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/>
-              <Header />
-              <Tasks tasks={tasks}/>
+              {/* <Header />
+              <Tasks tasks={tasks}/> */}
             </div>
           </Route>
           <div className="evernote">

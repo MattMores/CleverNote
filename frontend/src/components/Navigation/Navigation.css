@@ -31,6 +31,10 @@ ul {
   cursor: pointer;
 }
 
+.nav-btn:hover {
+  background: #4dec75;
+}
+
 .nav-btn-2 {
   border-radius: 10px;
   border: none;
@@ -43,6 +47,10 @@ ul {
   border-radius: 45px;
   cursor: pointer;
   font-size: 13px;
+}
+
+.nav-btn-2:hover {
+  background: #4dec75;
 }
 
 .sidenavbar .create-note-btn {
@@ -61,14 +69,46 @@ a {
 
 .profile-dropdown li {
   color: black;
-  background: black;
-  color: white;
+  /* background: gray; */
+  /* border: black;
+  border-style: dotted; */
   position: absolute;
   align-items: center;
   justify-content: center;
   display: flex;
   text-align: center;
+  margin-left: 200px;
 }
+
+/* .userbox {
+  border: black;
+  border-style: dotted;
+  padding: -10px;
+} */
+
+.userDrop {
+  text-align: center;
+  font-size: 14px;
+  border: black;
+  border-style: dotted;
+  /* padding-top: 10px; */
+  margin-top: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+  padding-left: 5px;
+  padding-right: 5px;
+  /* margin-left: 50px; */
+}
+
+.userDrop-1 {
+  text-align: center;
+  border: black;
+  border-style: dotted;
+  padding-left: 5px;
+  padding-right: 88px;
+  font-size: 14px;
+}
+
 .profile-dropdown button {
   width: 190px;
 }
@@ -88,6 +128,19 @@ a {
   position: relative;
   left: 500px;
 } */
+
+.logout-btn {
+  border-radius: 10px;
+  border: none;
+  margin: 15px;
+  width: 80px;
+  height: 30px;
+  margin-top: 25px;
+  background-color: #03a82d;
+  padding: 8px 10px;
+  border-radius: 50px;
+  cursor: pointer;
+}
 
 .header img {
   /* float: left; */

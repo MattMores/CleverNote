@@ -69,7 +69,7 @@ const EditNotes = () => {
        <div className="note">
             <div className="note__header">
                 <div className="note__header-date">
-                Last edited on updatedAt
+                Today's Date: 6/28/2021
                 {/* {noteFormatDate(updatedAt)} - see helper funciton */}
                 </div>
                 <div className="note__header-btn">
@@ -110,8 +110,9 @@ const EditNotes = () => {
                     {/* onChange={e => setNoteText(e)} */}
                      {/* {onBlur={() => handleUpdatedNote('desc)}} */}
                 </div>
-                <button type="submit">Edit</button>
-                <label><input onClick={onDeleteSubmit} type="checkbox" name="check" id="test" />some text here</label>
+                <button className="classic-btn" type="submit">Edit</button>
+                <button onClick={onDeleteSubmit} type="submit" className="trash-btn">Trash</button>
+                {/* <label><input onClick={onDeleteSubmit} type="checkbox" name="check" id="test" />some text here</label> */}
             </div>
         </div>
      </form>

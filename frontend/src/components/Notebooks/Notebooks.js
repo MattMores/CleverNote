@@ -91,9 +91,9 @@ const Notebook = (props) => {
                             {/* {note.content} */}
                         </div>
                     </div>
-                    <div className="note-card__date">
+                    {/* <div className="note-card__date">
                         {note.createdAt}
-                    </div>
+                    </div> */}
                 </Link>
                  </div>
                 ))}

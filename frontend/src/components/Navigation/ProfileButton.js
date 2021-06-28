@@ -40,15 +40,17 @@ function ProfileButton({ user }) {
         <i className="fas fa-sign-in-alt" />
       </button>
       {showMenu && (
+        <div className="userDrop-5">
         <ul className="profile-dropdown">
-          <li>{user.username}</li>
+          <li className="userDrop-1">User: {user.username}</li>
           <br></br>
-          <li>{user.email}</li>
+          <li className="userDrop">Email: {user.email}</li>
           <br></br>
           <li>
-            <button className="nav-btn" onClick={logout}>Log Out</button>
+            <button className="logout-btn" onClick={logout}>Log Out</button>
           </li>
         </ul>
+        </div>
       )}
     </>
   );
