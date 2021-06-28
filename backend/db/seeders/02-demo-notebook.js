@@ -5,19 +5,19 @@ module.exports = {
       return queryInterface.bulkInsert('Notebooks', [
         {
         userId: 4,
-        title: "WacArnold's"
+        title: "Notebook #1"
       },
       {
         userId: 4,
-        title: "When Keeping It Real Goes Wrong"
+        title: "Notebook #2"
       },
       {
         userId: 4,
-        title: "Charlie Murhpy;s True Hollywood Stories"
+        title: "Notebook #3"
       },
       {
         userId: 1,
-        title: "Demo User Notebook"
+        title: "Notebook"
       },
     ], {});
   },

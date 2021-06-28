@@ -18,7 +18,7 @@ module.exports = {
       {
         userId: 4,
         notebookId: 3,
-        title: "Charlie Murhpy's True Hollywood Stories",
+        title: "Charlie Murhpys True Hollywood Stories",
         content: "Charlie Murphy retells his encounters with 1980s celebrities, the most popular Rick James beating him up and Prince serving him pancakes. "
       },
       {

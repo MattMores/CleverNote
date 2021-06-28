@@ -208,7 +208,7 @@
 .sidenavbar .sidenavbar__need-help {
   display: flex;
   align-items: center;
-  padding: 8px;
+  /* padding-top: 30px; */
 }
 
 .sidenavbar .fa-shoe-prints {
