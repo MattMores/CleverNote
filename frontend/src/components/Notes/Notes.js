@@ -68,7 +68,7 @@ const notebookChange = (e) => {
        <div className="note">
             <div className="note__header">
                 <div className="note__header-date">
-                Today's Date: 6/28/2021
+                Today's Date:
                 {/* {noteFormatDate(updatedAt)} - see helper funciton */}
                 </div>
                 <div className="note__header-btn">
