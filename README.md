@@ -17,7 +17,7 @@ On the site, users can:
 * Use the demo login to experience the site without creating an account
 * Navigate to the /notes page to create, post, update, delete and view notes
 * Navigate to the /notes:id page to view, update and delete and review notes already created
-* Navigate to the /notebooks:id page to, update and delete notes from a specific notebook
+* Navigate to the /notebooks:id page to update and delete notes from a specific notebook
 * Use the search feature to display only notes/notebooks that are relevant to a keyword query
 
 ## Primary Features
