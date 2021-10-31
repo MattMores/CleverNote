@@ -16,7 +16,7 @@ On the site, users can:
 * Sign Up and log in / log out with their data persisting between visits
 * Use the demo login to experience the site without creating an account
 * Navigate to the /notes page to create, post, update, delete and view notes
-* Navigate to the /notes:id page to view, update and delete and review notes already created
+* Navigate to the /notes:id page to view, update and delete notes already created
 * Navigate to the /notebooks:id page to update and delete notes from a specific notebook
 * Use the search feature to display only notes/notebooks that are relevant to a keyword query
 
@@ -24,7 +24,7 @@ On the site, users can:
 
 ### User Login and Sign Up
 
-User can Login or Sign Up/Register using the same Login Form Modal powered by React
+Users can Login or Sign Up/Register using the a Login Form Modal powered by React
 
 <img width="682" alt="CleverNoteLogin" src="https://user-images.githubusercontent.com/79879179/139515552-4849a049-47ee-444a-8b08-6e383fdeaf43.png">
 
@@ -48,7 +48,7 @@ Users can click on an individual notebook and view only notes from that category
 
 ### Standup
 
-Comedians can also visit the /standup page, where they can plan their next stand-up set with a list of jokes and reminders. 
+Comedians can also visit the /standup page, where they can plan their next stand-up set by creating a list of jokes and reminders. 
 <img width="1138" alt="Standup1" src="https://user-images.githubusercontent.com/79879179/139515946-81777ea1-46a1-4e6f-8044-4a56264a52d5.png">
 
 <img width="1135" alt="Standup2" src="https://user-images.githubusercontent.com/79879179/139515952-fb73a507-3cbb-4bf8-a22b-4ff343b02b54.png">
