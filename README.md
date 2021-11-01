@@ -36,7 +36,7 @@ After logging in, the user lands on their home page where they can view all the 
 
 ### Create A Note
 
-Users can add a new note, select which Notebook to add it to, or create a new notebook - all displayed and executed without refreshing the page. 
+Users can add a new note, select which Notebook to add it to (or create a new notebook) - all displayed and executed without refreshing the page. 
 
 <img width="1039" alt="CreateANote" src="https://user-images.githubusercontent.com/79879179/139515829-76e08cc5-cfe1-4033-8e7c-64d25b8ca8cd.png">
 
