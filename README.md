@@ -24,7 +24,7 @@ On the site, users can:
 
 ### User Login and Sign Up
 
-Users can Login or Sign Up/Register using the a Login Form Modal powered by React
+Users can Login or Sign Up/Register using a Login Form Modal powered by React
 
 <img width="682" alt="CleverNoteLogin" src="https://user-images.githubusercontent.com/79879179/139515552-4849a049-47ee-444a-8b08-6e383fdeaf43.png">
 
