@@ -24,13 +24,13 @@ On the site, users can:
 
 ### User Login and Sign Up
 
-Users can Login or Sign Up/Register using a Login Form Modal powered by React
+Users can Login or Sign Up/Register using a Login Form Modal powered by React.
 
 <img width="682" alt="CleverNoteLogin" src="https://user-images.githubusercontent.com/79879179/139515552-4849a049-47ee-444a-8b08-6e383fdeaf43.png">
 
 ### All Notes Page
 
-After logging in, the user lands on their home page where they can view all the notebooks and notes they've created
+After logging in, the user lands on their home page where they can view all the notebooks and notes they've created.
 
 <img width="1128" alt="AllNotes" src="https://user-images.githubusercontent.com/79879179/139515649-c5c78370-2812-4c5a-8366-17e845fbefea.png">
 
